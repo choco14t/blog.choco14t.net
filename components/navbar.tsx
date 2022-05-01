@@ -12,6 +12,7 @@ import {
   MenuItem,
   MenuList,
   Stack,
+  Text,
 } from '@chakra-ui/react'
 
 const NavBar = () => {
@@ -26,7 +27,13 @@ const NavBar = () => {
       >
         <Flex align="center" mr={5}>
           <Heading as="h1" size="lg" letterSpacing={'tighter'}>
-            blog.choco14t.net
+            <NextLink href="/">
+              <a>
+                <Text fontSize="4xl" fontWeight="bold">
+                  blog.choco14t.net
+                </Text>
+              </a>
+            </NextLink>
           </Heading>
         </Flex>
 
