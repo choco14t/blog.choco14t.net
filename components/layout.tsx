@@ -12,7 +12,7 @@ const Layout = ({ children }: Props) => {
     <>
       <Meta />
       <NavBar />
-      <Box as="main">
+      <Box as="main" minH="calc(100vh - var(--header-height))">
         <Container maxW="container.md" py={6}>
           {children}
         </Container>

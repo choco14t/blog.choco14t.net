@@ -1,8 +1,8 @@
-import Container from '../components/container'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import Post from '../types/post'
+import PostList from '../components/post-list'
 
 type Props = {
   allPosts: Post[]
@@ -15,7 +15,7 @@ const Index = ({ allPosts }: Props) => {
         <Head>
           <title>blog.choco14t.net</title>
         </Head>
-        <Container></Container>
+        <PostList posts={allPosts} />
       </Layout>
     </>
   )

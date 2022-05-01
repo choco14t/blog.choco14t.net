@@ -1,42 +1,57 @@
-import Avatar from './avatar'
-import DateFormatter from './date-formatter'
-import CoverImage from './cover-image'
-import Link from 'next/link'
-import Author from '../types/author'
+import NextLink from 'next/link'
+import { format } from 'date-fns'
+import {
+  Box,
+  Heading,
+  Text,
+  useColorModeValue,
+  Flex,
+  Link,
+} from '@chakra-ui/react'
+import NordTheme from '../lib/nord-theme'
 
 type Props = {
   title: string
-  coverImage: string
   date: string
-  excerpt: string
-  author: Author
   slug: string
 }
 
-const PostPreview = ({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  author,
-  slug,
-}: Props) => {
+const PostPreview = ({ title, date, slug }: Props) => {
   return (
-    <div>
-      <div className="mb-5">
-        <CoverImage slug={slug} title={title} src={coverImage} />
-      </div>
-      <h3 className="text-3xl mb-3 leading-snug">
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a className="hover:underline">{title}</a>
-        </Link>
-      </h3>
-      <div className="text-lg mb-4">
-        <DateFormatter dateString={date} />
-      </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
-    </div>
+    <NextLink as={`/posts/${slug}`} href="/posts/[slug]" passHref>
+      <Link
+        rounded={'md'}
+        _hover={{
+          textDecoration: 'none',
+        }}
+      >
+        <Flex
+          direction="column"
+          justifyContent="space-between"
+          height="100%"
+          bg={useColorModeValue('white', NordTheme.nord1)}
+          boxShadow={'2xl'}
+          rounded={'md'}
+          p={6}
+          transitionTimingFunction="ease-in-out"
+          transitionDuration="0.2s"
+          _hover={{ background: useColorModeValue('white', NordTheme.nord3) }}
+        >
+          <Heading
+            color={useColorModeValue('gray.700', NordTheme.nord6)}
+            fontSize={'2xl'}
+            fontFamily={'body'}
+          >
+            {title}
+          </Heading>
+          <Box mt={10}>
+            <Text color={NordTheme.nord4}>
+              {format(new Date(date), 'yyyy-MM-dd')}
+            </Text>
+          </Box>
+        </Flex>
+      </Link>
+    </NextLink>
   )
 }
 
