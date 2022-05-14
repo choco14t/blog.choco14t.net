@@ -7,7 +7,7 @@ const NavBar = () => {
     <Box as="nav" w="100%">
       <Container
         display="flex"
-        p={2}
+        pt={3}
         maxW="container.md"
         alignItems="center"
         justifyContent="space-between"
