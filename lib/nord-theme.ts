@@ -18,6 +18,7 @@ const NordTheme = {
   nord13: '#ebcb8b',
   nord14: '#a3be8c',
   nord15: '#b48ead',
+  lightBg: '#f2f4f8',
 }
 
 export default NordTheme

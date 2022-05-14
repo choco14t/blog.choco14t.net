@@ -35,19 +35,15 @@ const PostPreview = ({ title, date, slug }: Props) => {
           p={6}
           transitionTimingFunction="ease-in-out"
           transitionDuration="0.2s"
-          _hover={{ background: useColorModeValue('white', NordTheme.nord3) }}
+          _hover={{
+            background: useColorModeValue(NordTheme.nord6, NordTheme.nord3),
+          }}
         >
-          <Heading
-            color={useColorModeValue('gray.700', NordTheme.nord6)}
-            fontSize={'2xl'}
-            fontFamily={'body'}
-          >
+          <Heading fontSize={'2xl'} fontFamily={'body'}>
             {title}
           </Heading>
           <Box mt={10}>
-            <Text color={NordTheme.nord4}>
-              {format(new Date(date), 'yyyy-MM-dd')}
-            </Text>
+            <Text>{format(new Date(date), 'yyyy-MM-dd')}</Text>
           </Box>
         </Flex>
       </Link>
