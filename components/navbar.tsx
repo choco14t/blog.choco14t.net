@@ -1,19 +1,6 @@
 import NextLink from 'next/link'
-import { FiMenu } from 'react-icons/fi'
-import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  IconButton,
-  Link,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Stack,
-  Text,
-} from '@chakra-ui/react'
+import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react'
+import ThemeToggleSwitch from './theme-toggle-switch'
 
 const NavBar = () => {
   return (
@@ -37,43 +24,8 @@ const NavBar = () => {
           </Heading>
         </Flex>
 
-        <Stack
-          direction={{ base: 'column', md: 'row' }}
-          display={{ base: 'none', md: 'flex' }}
-          width={{ base: 'full', md: 'auto' }}
-          alignItems="center"
-          flexGrow={1}
-          mt={{ base: 4, md: 0 }}
-        ></Stack>
-
         <Flex align="end">
-          <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
-            <Menu isLazy id="navbar-menu">
-              <MenuButton
-                as={IconButton}
-                icon={<FiMenu />}
-                variant="outline"
-                aria-label="Options"
-              />
-              <MenuList>
-                <NextLink href="/" passHref>
-                  <MenuItem as={Link}>About</MenuItem>
-                </NextLink>
-                <NextLink href="/works" passHref>
-                  <MenuItem as={Link}>Works</MenuItem>
-                </NextLink>
-                <NextLink href="/posts" passHref>
-                  <MenuItem as={Link}>Posts</MenuItem>
-                </NextLink>
-                <MenuItem
-                  as={Link}
-                  href="https://github.com/craftzdog/craftzdog-homepage"
-                >
-                  View Source
-                </MenuItem>
-              </MenuList>
-            </Menu>
-          </Box>
+          <ThemeToggleSwitch />
         </Flex>
       </Container>
     </Box>
