@@ -21,6 +21,8 @@ const PostPreview = ({ title, date, slug }: Props) => {
     <NextLink as={`/posts/${slug}`} href="/posts/[slug]" passHref>
       <Link
         rounded={'md'}
+        color={useColorModeValue(NordTheme.nord3, NordTheme.nord6)}
+        textDecoration="none"
         _hover={{
           textDecoration: 'none',
         }}

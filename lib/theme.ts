@@ -9,11 +9,10 @@ const config: ThemeConfig = {
 
 const components: ThemeComponents = {
   Link: {
-    baseStyle: {
-      _hover: {
-        color: NordTheme.nord14,
-      },
-    },
+    baseStyle: (props) => ({
+      color: mode(NordTheme.nord9, NordTheme.nord14)(props),
+      textDecoration: 'underline',
+    }),
   },
   Text: {
     baseStyle: (props) => ({
